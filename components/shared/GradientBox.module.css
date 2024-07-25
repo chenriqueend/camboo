@@ -1,0 +1,26 @@
+.custom-bg {
+  /* https://unused-css.com/tools/border-gradient-generator?p=22EYcwvALgxAZn8BoCsCAcCAsCAOAPBAjANwA2AFAMwUCcAJgKYgJRIAMrBAhqgASsCkCCACdOAOwDO2TsPpiIPAGyKAdBgIZBUakmD0Y9HgXb8AlAnIUATAybbd+wwOZsO3HqhWKA7Ei069AyMTUyA */
+  background: radial-gradient(
+        circle at 100% 100%,
+        #ffffff 0,
+        #ffffff 3px,
+        transparent 3px
+      )
+      0% 0%/8px 8px no-repeat,
+    radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 3px, transparent 3px)
+      100% 0%/8px 8px no-repeat,
+    radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 3px, transparent 3px)
+      0% 100%/8px 8px no-repeat,
+    radial-gradient(circle at 0 0, #ffffff 0, #ffffff 3px, transparent 3px) 100%
+      100%/8px 8px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 10px)
+      calc(100% - 16px) no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 16px)
+      calc(100% - 10px) no-repeat,
+    linear-gradient(339deg, #5001a8 0%, transparent 66.414%, #95befe 100%),
+    linear-gradient(32deg, #95befe 0%, #5001a8 8.675%, #95befe 100%);
+  border-radius: 8px;
+  padding: 9px;
+  /* box-sizing: border-box; */
+  /* Add other styles here */
+}
