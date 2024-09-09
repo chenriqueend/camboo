@@ -1,23 +1,21 @@
-import { LiaUserAltSolid } from "react-icons/lia";
 import { AiFillStar } from "react-icons/ai";
-import { BiHomeAlt2 } from "react-icons/bi";
-import { LuFerrisWheel } from "react-icons/lu";
-import { BsPerson, BsBookmark } from "react-icons/bs";
+import { interests } from "../../mocks/Interests";
+import { Button } from "../ui/button";
 export const SideMenu = () => {
   return (
-    <div className="mt-3 h-[80vh]">
+    <div className="mt-3 h-[70vh] w-[30vh]">
       <section>
-        <section className="flex ">
+        <section className="flex flex-col justify-center items-center">
           <div className="flex items-center justify-center w-20 h-20 p-2 rounded-full cursor-pointer">
             <img
               src={"https://avatars.githubusercontent.com/u/103892127?v=4"}
               alt="avatar"
-              className=" rounded-full mr-4"
+              className=" rounded-full "
             />
           </div>
-          <div className="mt-2">
+          <div className="flex flex-col  items-center justify-center">
             <div>Carlos Henrique</div>
-            <div className="flex">
+            <div className="flex ">
               <AiFillStar className="text-amber-500" />
               <AiFillStar className="text-amber-500" />
               <AiFillStar className="text-amber-500" />
@@ -25,6 +23,17 @@ export const SideMenu = () => {
               <AiFillStar className="text-amber-500" />
             </div>
             <div className="text-xs text-slate-400">Ver perfil</div>
+            <Button
+              variant={"secondary"}
+              className="mt-2 pl-3 h-8 text-xs font-normal"
+            >
+              <img
+                src={"/assets/icons/sendIcon.svg"}
+                alt="send icon"
+                className=" w-4 h-4 mr-2 "
+              />
+              Convidar Amigos
+            </Button>
           </div>
         </section>
       </section>
@@ -32,21 +41,11 @@ export const SideMenu = () => {
       <section>
         <div className="my-4 text-slate-400">Seus Interesses</div>
         <div className="flex flex-wrap gap-x-2 gap-y-2">
-          <div className="flex items-center h-3 p-4 text-sm bg-blue-200 rounded-lg">
-            Tag
-          </div>
-          <div className="flex items-center h-3 p-4 text-sm bg-blue-200 rounded-lg">
-            Tag
-          </div>
-          <div className="flex items-center h-3 p-4 text-sm bg-blue-200 rounded-lg">
-            Tag
-          </div>
-          <div className="flex items-center h-3 p-4 text-sm bg-blue-200 rounded-lg">
-            Tag
-          </div>
-          <div className="flex items-center h-3 p-4 text-sm bg-blue-200 rounded-lg">
-            Tag
-          </div>
+          {interests.map((interest) => (
+            <div className="flex items-center h-3 p-4 text-sm bg-white rounded-xl border-[#5001A8] border-2">
+              {interest.name}
+            </div>
+          ))}
         </div>
       </section>
     </div>

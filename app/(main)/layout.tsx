@@ -4,6 +4,8 @@ import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import ClientLayout from "../Client/ClientLayout";
+import { interests } from "@/mocks/Interests";
+import Chat from "./feed/chat";
 
 export default async function MainLayout({
   children,
@@ -38,8 +40,10 @@ export default async function MainLayout({
       >
         <Header />
       </section>
+
       <div className="flex justify-center items-center mt-6">
         <ClientLayout>{children}</ClientLayout>
+        {/* <Chat /> */}
       </div>
     </main>
   );
