@@ -38,7 +38,7 @@ const LocationPicker = () => {
   );
 };
 
-const CriarAnuncioButton = () => {
+const CreateAnnounceButton = () => {
   return (
     <div className="flex items-center justify-center h-10 font-light">
       <Button
@@ -54,7 +54,7 @@ const CriarAnuncioButton = () => {
 
 const PerfilArea = () => {
   return (
-    <div className="flex items-center justify-center h-10 gap-2 font-light">
+    <div className="hidden md:flex items-center justify-center h-10 gap-2 font-light">
       <Link href="/login">
         <div className="flex items-center justify-center w-10 h-10 p-2 bg-dark-blue-gradient hover:opacity-90 border border-gray-300 rounded-full cursor-pointer ">
           <LiaUserAltSolid size="1.5em" className="text-white" />
@@ -66,7 +66,7 @@ const PerfilArea = () => {
 
 const NotifyArea = () => {
   return (
-    <div className="flex">
+    <div className="hidden md:flex">
       <div className="h-full mx-4 border-r border-[#D1D8DB]" />
       <div className="relative flex items-center justify-center w-10 h-10 p-2 bg-dark-blue-gradient hover:opacity-90 border border-gray-300 rounded-full cursor-pointer">
         <div className="absolute self-end transform translate-x-[120%] -translate-y-[180%] w-[10px] h-[10px] bg-red-500 rounded-full " />
@@ -81,7 +81,7 @@ export const Header = async () => {
   const userEmail = authUser?.email || "";
   return (
     <div className="flex justify-center h-10 gap-4">
-      <div className="w-[130px] h-[40px] relative">
+      <div className=" md:w-[130px] h-[40px] relative">
         <Link href={"/feed"}>
           <Logo />
         </Link>
@@ -94,7 +94,7 @@ export const Header = async () => {
         linkURL={"/feed"}
         textButton={"Home"}
       />
-      <CriarAnuncioButton />
+      <CreateAnnounceButton />
       <DropDownNotifications>
         <NotifyArea />
       </DropDownNotifications>

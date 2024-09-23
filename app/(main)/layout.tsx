@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import ClientLayout from "../Client/ClientLayout";
 import { interests } from "@/mocks/Interests";
-import Chat from "./feed/chat";
+import ChatBox from "@/components/chat/ChatBox";
 
 export default async function MainLayout({
   children,
@@ -43,7 +43,14 @@ export default async function MainLayout({
 
       <div className="flex justify-center items-center mt-6">
         <ClientLayout>{children}</ClientLayout>
-        {/* <Chat /> */}
+      </div>
+      <div className="fixed bottom-4 right-4 z-100 e p-4 ">
+        <ChatBox
+          targetId={""}
+          profilePictureURL={""}
+          profileFullName={""}
+          currentUserId={""}
+        />
       </div>
     </main>
   );

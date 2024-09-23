@@ -117,8 +117,6 @@ export default function ChatBox(props: PropsType) {
   );
 
   useEffect(() => {
-    console.log("ChatBox useEffect");
-
     const fetchMessages = async (targetId: string, currentUserId: string) => {
       if (targetId === currentUserId) return; // dont fetch messages if user is talking to himself
       const supabase = createClient();
