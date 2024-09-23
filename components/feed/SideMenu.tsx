@@ -39,7 +39,7 @@ export const SideMenu = () => {
       </section>
       <hr className="my-5" />
       <section>
-        <div className="my-4 text-slate-400">Seus Interesses</div>
+        <div className="my-4 text-slate-400">Categorias de interesse</div>
         <div className="flex flex-wrap gap-x-2 gap-y-2">
           {interests.map((interest) => (
             <div className="flex items-center h-3 p-4 text-sm bg-white rounded-xl border-[#5001A8] border-2">

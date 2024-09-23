@@ -44,7 +44,7 @@ export default async function MainLayout({
       <div className="flex justify-center items-center mt-6">
         <ClientLayout>{children}</ClientLayout>
       </div>
-      <div className="fixed bottom-4 right-4 z-100 e p-4 ">
+      <div className="fixed bottom-4 right-4 z-100 e p-4 hidden md:flex">
         <ChatBox
           targetId={""}
           profilePictureURL={""}
