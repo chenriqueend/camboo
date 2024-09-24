@@ -1,13 +1,12 @@
 import React from "react";
-import ChatController from "@/components/Chat/ChatController";
-import { getChatUsersProfiles } from "@/components/Chat/actions";
+import ChatController from "@/components/oldChat/ChatController";
+import { getChatUsersProfiles } from "@/components/oldChat/actions";
 import { getAuthUser, getSupabaseUser } from "@/actions/auth";
 
 export default async function BlankPage() {
   const userProfiles = await getChatUsersProfiles();
   const user = await getAuthUser();
   console.log(user?.id);
-  // console.log(userProfiles);
 
   return (
     <div className="flex flex-col min-h-screen true-gray-200">

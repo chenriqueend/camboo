@@ -26,13 +26,14 @@ export const SideMenu = () => {
             <Button
               variant={"secondary"}
               className="mt-2 pl-3 h-8 text-xs font-normal"
+              hasLink={false}
+              textButton="Convidar Amigos"
             >
               <img
                 src={"/assets/icons/sendIcon.svg"}
                 alt="send icon"
                 className=" w-4 h-4 mr-2 "
               />
-              Convidar Amigos
             </Button>
           </div>
         </section>
