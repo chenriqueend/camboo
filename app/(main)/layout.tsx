@@ -4,8 +4,8 @@ import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import ClientLayout from "../Client/ClientLayout";
-import { interests } from "@/mocks/Interests";
-import ChatBox from "@/components/chat/ChatBox";
+import { friends } from "@/components/chat/FriendMock";
+import { FriendsContainer } from "@/components/chat/FriendsConteiner";
 
 export default async function MainLayout({
   children,
@@ -28,10 +28,6 @@ export default async function MainLayout({
     data: { user },
   } = await supabase.auth.getUser();
 
-  // if (!isSupabaseConnected || user === null) {
-  //   return redirect("/");
-  // }
-
   return (
     <main className="w-full">
       <section
@@ -44,13 +40,9 @@ export default async function MainLayout({
       <div className="flex justify-center items-center mt-6">
         <ClientLayout>{children}</ClientLayout>
       </div>
-      <div className="fixed bottom-4 right-4 z-100 e p-4 hidden md:flex">
-        <ChatBox
-          targetId={""}
-          profilePictureURL={""}
-          profileFullName={""}
-          currentUserId={""}
-        />
+      <div className="fixed bottom-4 right-4 z-100 e p-4 hidden md:flex gap-2">
+        <FriendsContainer friends={friends} />{" "}
+        {/* Renderiza o FriendsContainer */}
       </div>
     </main>
   );

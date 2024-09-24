@@ -41,6 +41,7 @@ export interface ButtonProps
   hasLink?: boolean;
   linkURL?: string;
   textButton?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -53,6 +54,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       hasLink,
       linkURL,
       textButton,
+      onClick,
       ...props
     },
     ref
@@ -65,7 +67,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             className={cn(buttonVariants({ variant, size, className }))}
             ref={ref}
             {...props}
-          />
+            onClick={onClick}
+          >
+            {textButton}
+          </Comp>
         ) : (
           <Link
             href={linkURL as string}

@@ -3,35 +3,36 @@ import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
 export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
-  return createServerClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value;
-        },
-        set(name: string, value: string, options: CookieOptions) {
-          try {
-            cookieStore.set({ name, value, ...options });
-          } catch (error) {
-            // The `set` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
-          }
-        },
-        remove(name: string, options: CookieOptions) {
-          try {
-            cookieStore.set({ name, value: "", ...options });
-          } catch (error) {
-            // The `delete` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
-          }
-        },
+  const supabaseUrl =
+    process.env.NEXT_PUBLIC_SUPABASE_URL || "https://dummy.supabase.co";
+  const supabaseAnonKey =
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "dummy-key";
+
+  return createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
+    cookies: {
+      get(name: string) {
+        return cookieStore.get(name)?.value;
       },
-    }
-  );
+      set(name: string, value: string, options: CookieOptions) {
+        try {
+          cookieStore.set({ name, value, ...options });
+        } catch (error) {
+          // O método `set` foi chamado a partir de um componente de servidor.
+          // Isso pode ser ignorado se você tiver middleware que atualiza
+          // as sessões do usuário.
+        }
+      },
+      remove(name: string, options: CookieOptions) {
+        try {
+          cookieStore.set({ name, value: "", ...options });
+        } catch (error) {
+          // O método `delete` foi chamado a partir de um componente de servidor.
+          // Isso pode ser ignorado se você tiver middleware que atualiza
+          // as sessões do usuário.
+        }
+      },
+    },
+  });
 };
 
 export const getSupabaseServerClient = () => {

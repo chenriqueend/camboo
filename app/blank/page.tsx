@@ -1,6 +1,6 @@
 import React from "react";
-import ChatController from "@/components/chat/ChatController";
-import { getChatUsersProfiles } from "@/components/chat/actions";
+import ChatController from "@/components/Chat/ChatController";
+import { getChatUsersProfiles } from "@/components/Chat/actions";
 import { getAuthUser, getSupabaseUser } from "@/actions/auth";
 
 export default async function BlankPage() {
