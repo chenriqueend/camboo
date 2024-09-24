@@ -34,7 +34,8 @@ export const FriendsList: React.FC<FriendsListProps> = ({
                 </div>
               </div>
               <div className="flex items-center">
-                {friend?.notificationsCount > 0 ? (
+                {friend?.notificationsCount !== null &&
+                friend?.notificationsCount > 0 ? (
                   <span className="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
                     {friend.notificationsCount}
                   </span>
