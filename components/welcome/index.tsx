@@ -10,11 +10,11 @@ export default function WelcomeComponent() {
         <Logo />
       </div>
       <ButtonLink href="/login">
-        <Button className="w-full">Entrar</Button>
+        <Button className="w-full" textButton="Entrar"></Button>
       </ButtonLink>
 
       <ButtonLink href="/register">
-        <Button className="w-full">Registar</Button>
+        <Button className="w-full" textButton="Registar"></Button>
       </ButtonLink>
       {/* <ButtonLink href="/welcome">
         <Button className="w-full">Registar</Button>

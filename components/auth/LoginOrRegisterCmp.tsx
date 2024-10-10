@@ -106,31 +106,40 @@ export default function LoginOrRegisterCmp(props: LoginFormProps) {
 
   return (
     <div className="flex flex-col items-center ">
-      {/* <BackBtn
-        path="/register"
-        className="absolute left-[0px] top-4 lg:left-8 lg:top-8 text-foreground"
-      /> */}
-      <section className="w-full px-12 lg:w-[30vw]">
+      {props.formType === "login" ? (
+        <BackBtn
+          path="/register"
+          className="absolute left-[0px] top-4 lg:left-8 lg:top-8 text-foreground"
+        />
+      ) : (
+        <>
+          <BackBtn
+            path="/login"
+            className="absolute left-[0px] top-4 lg:left-8 lg:top-8 text-foreground"
+          />
+        </>
+      )}
+      <section className="w-full  lg:w-[30vw]">
         <section className="flex flex-col items-center mt-12 ">
           <div className="w-[200px] h-[60px] relative">
             <Logo />
           </div>
         </section>
-        <div className="mt-4 border-gradient-rounded bg-white">
-          <section className="mx-16 my-8 ">
+        <div className="m-4 border-gradient-rounded bg-white items-center justify-center">
+          <section className="m-5 md:mx-16 md:my-8 ">
             {props.formType === "welcome" && (
-              <section className="mb-8">
+              <section className="md:mb-8">
                 <Stepper steps={steps} currentStep={currentStep} />
               </section>
             )}
-            <section className="flex flex-col items-center mt-4 mb-14 text-[#4F4F4F]">
+            <section className="w-[40vh] md:w-full flex flex-col items-center justify-center mr-5 my-4 md:mb-14 text-[#4F4F4F]">
               {props.formType === "login" && (
-                <h1 className="text-2xl text-black mb-2 font-bold">
+                <h1 className="text-[1.2rem] whitespace-nowrap md:text-2xl text-black mb-2 font-bold">
                   Faça login para começar
                 </h1>
               )}
               {props.formType === "register" && (
-                <h1 className="text-2xl font-bold text-black mb-2">
+                <h1 className="text-2xl md:text-2xl font-bold text-black mb-2">
                   Crie a sua conta
                 </h1>
               )}
@@ -141,14 +150,16 @@ export default function LoginOrRegisterCmp(props: LoginFormProps) {
               )}
 
               {props.formType === "welcome" && currentStep === 1 && (
-                <h1 className="text-2xl ">qual a sua localização?</h1>
+                <h1 className="text-2xl whitespace-nowrap">
+                  qual a sua localização?
+                </h1>
               )}
               {props.formType === "welcome" && currentStep === 2 && (
                 <h1 className="text-2xl  ">quais seus interesses?</h1>
               )}
               {props.formType === "welcome" && currentStep === 0 && (
-                <p className="text-base mt-2 font-sans text-center">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                <p className="text-base md:text-base  mt-2 font-sans ">
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
                   lobortis maximus
                 </p>
               )}
@@ -165,7 +176,7 @@ export default function LoginOrRegisterCmp(props: LoginFormProps) {
                 </p>
               )}
               {props.formType === "welcome" && currentStep === 2 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4 cursor-pointer">
+                <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 gap-4 mt-4 cursor-pointer">
                   {tags.map((tag, index) => (
                     <Tag
                       key={index}
@@ -178,7 +189,7 @@ export default function LoginOrRegisterCmp(props: LoginFormProps) {
               )}
 
               {props.formType !== "welcome" && (
-                <h4 className="text-center mt-2">
+                <h4 className="text-center mt-2 ">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
                   lobortis maximus
                 </h4>
@@ -188,27 +199,32 @@ export default function LoginOrRegisterCmp(props: LoginFormProps) {
             {props.formType !== "onlyUserAndPassword" &&
               props.formType !== "welcome" && (
                 <>
-                  <section className="mb-4">
-                    <SignInWithGoogleButton formType={props.formType} />
+                  <section className="mb-2 md:mb-4">
+                    <Button
+                      variant="ghost"
+                      className="w-full border border-gray-300 rounded-lg whitespace-nowrap "
+                      hasLink={true}
+                      linkURL={"/feed"}
+                      textButton={
+                        props.formType === "register"
+                          ? "Registre-se com google"
+                          : "Continuar com google"
+                      }
+                    ></Button>
                   </section>
 
                   <section>
                     <Button
                       variant="ghost"
-                      className="w-full border border-gray-300 rounded-lg "
-                    >
-                      <img
-                        src="/assets/login/fb.svg"
-                        alt="Google logo"
-                        className="w-6 h-6 mr-2"
-                      />
-
-                      {props.formType !== "register" && <span>Continuar</span>}
-                      {props.formType === "register" && (
-                        <span>Registre-se</span>
-                      )}
-                      <span>&nbsp;com Facebook</span>
-                    </Button>
+                      className="w-full border border-gray-300 rounded-lg whitespace-nowrap "
+                      hasLink={true}
+                      linkURL={"/feed"}
+                      textButton={
+                        props.formType === "register"
+                          ? "Registre-se com facebook"
+                          : "Continuar com facebook"
+                      }
+                    ></Button>
                   </section>
                   <div className="flex items-center justify-center my-4">
                     <div className="flex-grow mr-2 border-t border-gray-300"></div>
@@ -280,7 +296,7 @@ export default function LoginOrRegisterCmp(props: LoginFormProps) {
                 </div>
               )}
               {props.formType === "welcome" && currentStep === 0 && (
-                <div className="mb-28">
+                <div className="mb-8 md:mb-28">
                   <p className="text-[#041737] text-base font-bold mb-2 ml-1">
                     como você quer ser chamado?
                   </p>
@@ -288,7 +304,7 @@ export default function LoginOrRegisterCmp(props: LoginFormProps) {
                 </div>
               )}
               {props.formType === "welcome" && currentStep === 1 && (
-                <div className="mb-28">
+                <div className=" mb-8 md:mb-28">
                   <Input
                     type="text"
                     name="email"

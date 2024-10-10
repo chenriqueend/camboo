@@ -6,7 +6,6 @@ import { getAuthUser, getSupabaseUser } from "@/actions/auth";
 export default async function BlankPage() {
   const userProfiles = await getChatUsersProfiles();
   const user = await getAuthUser();
-  console.log(user?.id);
 
   return (
     <div className="flex flex-col min-h-screen true-gray-200">
