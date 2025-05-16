@@ -36,7 +36,7 @@ export default function RightSidePanel() {
             className=" rounded-full w-9 h-9 mt-1"
           />
           <div className="flex flex-col">
-            <div>Rodrigo Martins</div>
+            <div>Filipe Oliveira</div>
             <div className="flex ">
               <AiFillStar className="text-amber-500" />
               <AiFillStar className="text-amber-500" />

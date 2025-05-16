@@ -14,7 +14,7 @@ export default function PostCard() {
               <img className="rounded-full" src="/assets/profilePic.jpeg" />
             </div>
             <div>
-              <div className="font-semibold">Rodrigo Martins</div>
+              <div className="font-semibold">Filipe Oliveira</div>
               <div className="text-xs text-slate-400">Há 2 horas</div>
             </div>
           </div>

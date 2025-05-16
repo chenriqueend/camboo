@@ -34,7 +34,7 @@ export default function DetailPage() {
             <section className="flex items-center gap-2 p-2 text-sm font-light">
               <ProfileBadge />
               <div>
-                <h2>Rodrigo Martins</h2>
+                <h2>Filipe Oliveira</h2>
                 <div className="flex items-center gap-1 text-[.8em]">
                   <AiFillStar className="text-blue-gray-900" />
                   <div>4.8</div>

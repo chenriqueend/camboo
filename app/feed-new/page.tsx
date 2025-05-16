@@ -5,7 +5,7 @@ import NewTradeItemForm from "./upload2/NewTradeItemForm";
 
 export default async function NewFeedPage() {
   const postObj = {
-    userName: "Rodrigo Martins",
+    userName: "Filipe Oliveira",
     userProfileImgURL: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
     publishedAt: "14/01 às 21:42",
     postTitle: "Yamaha YZF R3 2018",
